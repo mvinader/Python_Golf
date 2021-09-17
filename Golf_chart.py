@@ -31,5 +31,40 @@ image1 = Image.open("Grafica1.png")
 image2 = Image.open("Grafica2.png")
 st.image(image1, caption="Fuente: https://www.foxsports.com/golf/tiger-woods-player-stats?category=shots&groupId=1")
 st.image(image2, caption="Fuente: https://www.foxsports.com/golf/tiger-woods-player-stats?category=shots&groupId=1")
+
+st.write(f"""Estadísticas por temporada""")
+
+option = st.selectbox('Selecciona una temporada para ver los resultados', ('2017/18', '2018/19', '2019/20', '2020/21'))
+if option == "2017/18":
+    #seleccion = tabla["EV"]
+    i = 1
+    #st.dataframe(datos.iloc[0:i])
+elif option == "2018/19":
+    #seleccion = tabla["EV"]
+    i = 2
+elif option == "2019/20":
+    #seleccion = tabla["EV"]
+    i = 3
+elif option == "2020/21":
+    #seleccion = tabla["EV"]
+    i = 4
+
+seleccion = datos.iloc[i-1:i, [1,2,3,4,5,6,7,8,9]]
+st.dataframe(seleccion)
+
+fila = datos[datos['SEASON '] == '2017/18']
+
+#seleccion_ = seleccion.to_numpy()
+#st.bar_chart(seleccion_)
+st.pyplot(fila)
+
+#st.write(f"""Los mejores resultados respecto a cada una de las categorías han sido:""")
+#datos.min("EV")
+#datos.min("AVG")
+#datos.min("DR")
+#datos.min("EV")
+#datos.min("EV")
+#datos.min("EV")
+
 #st.bar_chart(datos)
 #st.pyplot(datos)
